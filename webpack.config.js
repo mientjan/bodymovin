@@ -32,7 +32,7 @@ let config = {
 
 	devtool: "eval-source-map"
 };
-
+\
 
 if (process.env.NODE_ENV === "production") {
 	config.devtool = "source-map";

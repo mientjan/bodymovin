@@ -1,4 +1,4 @@
-function EffectsManager(data,element,dynamicProperties){
+export function EffectsManager(data,element,dynamicProperties){
     var effects = data.ef;
     this.effectElements = [];
     var i,len = effects.length;
@@ -9,7 +9,7 @@ function EffectsManager(data,element,dynamicProperties){
     }
 }
 
-function GroupEffect(data,element,dynamicProperties){
+export function GroupEffect(data,element,dynamicProperties){
     this.dynamicProperties = [];
     this.init(data,element,this.dynamicProperties);
     if(this.dynamicProperties.length){

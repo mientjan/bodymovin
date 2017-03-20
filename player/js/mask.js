@@ -1,4 +1,4 @@
-function MaskElement(data,element,globalData) {
+export default function MaskElement(data,element,globalData) {
     this.dynamicProperties = [];
     this.data = data;
     this.element = element;
