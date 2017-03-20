@@ -27,7 +27,7 @@
  * @constructor
  */
 
-var Matrix = (function(){
+
 
     function reset(){
         this.props[0] = 1;
@@ -297,7 +297,7 @@ var Matrix = (function(){
         return "" + this.toArray();
     }
 
-    return function(){
+    export default function Matrix() {
         this.reset = reset;
         this.rotate = rotate;
         this.rotateX = rotateX;
@@ -329,6 +329,4 @@ var Matrix = (function(){
 
         this.cssParts = ['matrix3d(','',')'];
     }
-}());
 
-export default Matrix;

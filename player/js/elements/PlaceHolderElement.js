@@ -1,4 +1,4 @@
-var PlaceHolderElement = function (data,parentContainer,globalData){
+export default function PlaceHolderElement(data,parentContainer,globalData){
     this.data = data;
     this.globalData = globalData;
     if(parentContainer){

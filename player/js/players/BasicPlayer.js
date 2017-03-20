@@ -1,4 +1,4 @@
-function BasicPlayer(){}
+export default function BasicPlayer(){}
 
 BasicPlayer.prototype.setAnimationItem = function(item){
 };

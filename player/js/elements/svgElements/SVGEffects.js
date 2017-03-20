@@ -1,4 +1,4 @@
-function SVGEffects(elem){
+export default function SVGEffects(elem){
     var i, len = elem.data.ef.length;
     var filId = randomString(10);
     var fil = filtersFactory.createFilter(filId);

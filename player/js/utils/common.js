@@ -1,5 +1,6 @@
-var subframeEnabled = true;
-var expressionsPlugin;
+export var subframeEnabled = true;
+export var svgNS = "http://www.w3.org/2000/svg";
+export var expressionsPlugin;
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 var cachedColors = {};
 var bm_rounder = Math.round;
@@ -21,7 +22,7 @@ var BMMath = {};
     }
 }());
 
-function ProjectInterface(){return {}};
+export function ProjectInterface(){return {}};
 
 BMMath.random = Math.random;
 BMMath.abs = function(val){
@@ -38,10 +39,10 @@ BMMath.abs = function(val){
 
 }
 var defaultCurveSegments = 150;
-var degToRads = Math.PI/180;
-var roundCorner = 0.5519;
+export var degToRads = Math.PI/180;
+export var roundCorner = 0.5519;
 
-function roundValues(flag){
+export function roundValues(flag){
     if(flag){
         bm_rnd = Math.round;
     }else{
@@ -52,15 +53,15 @@ function roundValues(flag){
 }
 roundValues(false);
 
-function roundTo2Decimals(val){
+export function roundTo2Decimals(val){
     return Math.round(val*10000)/10000;
 }
 
-function roundTo3Decimals(val){
+export function roundTo3Decimals(val){
     return Math.round(val*100)/100;
 }
 
-function styleDiv(element){
+export function styleDiv(element){
     element.style.position = 'absolute';
     element.style.top = 0;
     element.style.left = 0;
@@ -70,7 +71,7 @@ function styleDiv(element){
     element.style.transformStyle = element.style.webkitTransformStyle = element.style.mozTransformStyle = "preserve-3d";
 }
 
-function styleUnselectableDiv(element){
+export function styleUnselectableDiv(element){
     element.style.userSelect = 'none';
     element.style.MozUserSelect = 'none';
     element.style.webkitUserSelect = 'none';
@@ -78,37 +79,37 @@ function styleUnselectableDiv(element){
 
 }
 
-function BMEnterFrameEvent(n,c,t,d){
+export function BMEnterFrameEvent(n,c,t,d){
     this.type = n;
     this.currentTime = c;
     this.totalTime = t;
     this.direction = d < 0 ? -1:1;
 }
 
-function BMCompleteEvent(n,d){
+export function BMCompleteEvent(n,d){
     this.type = n;
     this.direction = d < 0 ? -1:1;
 }
 
-function BMCompleteLoopEvent(n,c,t,d){
+export function BMCompleteLoopEvent(n,c,t,d){
     this.type = n;
     this.currentLoop = c;
     this.totalLoops = t;
     this.direction = d < 0 ? -1:1;
 }
 
-function BMSegmentStartEvent(n,f,t){
+export function BMSegmentStartEvent(n,f,t){
     this.type = n;
     this.firstFrame = f;
     this.totalFrames = t;
 }
 
-function BMDestroyEvent(n,t){
+export function BMDestroyEvent(n,t){
     this.type = n;
     this.target = t;
 }
 
-function _addEventListener(eventName, callback){
+export function _addEventListener(eventName, callback){
 
     if (!this._cbs[eventName]){
         this._cbs[eventName] = [];
@@ -117,7 +118,7 @@ function _addEventListener(eventName, callback){
 
 }
 
-function _removeEventListener(eventName,callback){
+export function _removeEventListener(eventName,callback){
 
     if (!callback){
         this._cbs[eventName] = null;
@@ -138,7 +139,7 @@ function _removeEventListener(eventName,callback){
 
 }
 
-function _triggerEvent(eventName, args){
+export function _triggerEvent(eventName, args){
     if (this._cbs[eventName]) {
         var len = this._cbs[eventName].length;
         for (var i = 0; i < len; i++){
@@ -147,7 +148,7 @@ function _triggerEvent(eventName, args){
     }
 }
 
-function randomString(length, chars){
+export function randomString(length, chars){
     if(chars === undefined){
         chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     }
@@ -157,7 +158,7 @@ function randomString(length, chars){
     return result;
 }
 
-function HSVtoRGB(h, s, v) {
+export function HSVtoRGB(h, s, v) {
     var r, g, b, i, f, p, q, t;
     if (arguments.length === 1) {
         s = h.s, v = h.v, h = h.h;
@@ -180,7 +181,7 @@ function HSVtoRGB(h, s, v) {
          b ];
 }
 
-function RGBtoHSV(r, g, b) {
+export function RGBtoHSV(r, g, b) {
     if (arguments.length === 1) {
         g = r.g, b = r.b, r = r.r;
     }
@@ -204,7 +205,7 @@ function RGBtoHSV(r, g, b) {
     ];
 }
 
-function addSaturationToRGB(color,offset){
+export function addSaturationToRGB(color,offset){
     var hsv = RGBtoHSV(color[0]*255,color[1]*255,color[2]*255);
     hsv[1] += offset;
     if (hsv[1] > 1) {
@@ -216,7 +217,7 @@ function addSaturationToRGB(color,offset){
     return HSVtoRGB(hsv[0],hsv[1],hsv[2]);
 }
 
-function addBrightnessToRGB(color,offset){
+export function addBrightnessToRGB(color,offset){
     var hsv = RGBtoHSV(color[0]*255,color[1]*255,color[2]*255);
     hsv[2] += offset;
     if (hsv[2] > 1) {
@@ -228,7 +229,7 @@ function addBrightnessToRGB(color,offset){
     return HSVtoRGB(hsv[0],hsv[1],hsv[2]);
 }
 
-function addHueToRGB(color,offset) {
+export function addHueToRGB(color,offset) {
     var hsv = RGBtoHSV(color[0]*255,color[1]*255,color[2]*255);
     hsv[0] += offset/360;
     if (hsv[0] > 1) {
@@ -240,7 +241,7 @@ function addHueToRGB(color,offset) {
     return HSVtoRGB(hsv[0],hsv[1],hsv[2]);
 }
 
-function componentToHex(c) {
+export function componentToHex(c) {
     var hex = c.toString(16);
     return hex.length == 1 ? '0' + hex : hex;
 }
@@ -268,7 +269,7 @@ var rgbToHex = (function(){
     };
 }());
 
-function fillToRgba(hex,alpha){
+export function fillToRgba(hex,alpha){
     if(!cachedColors[hex]){
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         cachedColors[hex] = parseInt(result[1], 16)+','+parseInt(result[2], 16)+','+parseInt(result[3], 16);
@@ -299,12 +300,12 @@ var fillColorToString = (function(){
     };
 }());
 
-function RenderedFrame(tr,o) {
+export function RenderedFrame(tr,o) {
     this.tr = tr;
     this.o = o;
 }
 
-function LetterProps(o,sw,sc,fc,m,p){
+export function LetterProps(o,sw,sc,fc,m,p){
     this.o = o;
     this.sw = sw;
     this.sc = sc;
@@ -313,14 +314,14 @@ function LetterProps(o,sw,sc,fc,m,p){
     this.props = p;
 }
 
-function iterateDynamicProperties(num){
+export function iterateDynamicProperties(num){
     var i, len = this.dynamicProperties;
     for(i=0;i<len;i+=1){
         this.dynamicProperties[i].getValue(num);
     }
 }
 
-function reversePath(paths){
+export function reversePath(paths){
     var newI = [], newO = [], newV = [];
     var i, len, newPaths = {};
     var init = 0;
@@ -345,4 +346,25 @@ function reversePath(paths){
     newPaths.v = newV;
 
     return newPaths;
+}
+
+export function createElement(parent,child,params){
+	if(child){
+		child.prototype = Object.create(parent.prototype);
+		child.prototype.constructor = child;
+		child.prototype._parent = parent.prototype;
+	}else{
+		var instance = Object.create(parent.prototype,params);
+		var getType = {};
+		if(instance && getType.toString.call(instance.init) === '[object Function]'){
+			instance.init();
+		}
+		return instance;
+	}
+}
+
+export function extendPrototype(source,destination){
+	for (var attr in source.prototype) {
+		if (source.prototype.hasOwnProperty(attr)) destination.prototype[attr] = source.prototype[attr];
+	}
 }

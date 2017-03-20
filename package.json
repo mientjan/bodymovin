@@ -7,6 +7,12 @@
     "type": "git",
     "url": "https://github.com/bodymovin/bodymovin.git"
   },
+
+  "scripts": {
+    "server": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.js"
+  },
+
   "keywords": [
     "animation",
     "canvas",

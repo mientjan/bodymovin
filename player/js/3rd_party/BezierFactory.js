@@ -153,5 +153,7 @@ var BezierFactory = (function(){
 
     return ob;
 
-}())
+}());
+
+export var BezierFactory;
 

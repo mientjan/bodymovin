@@ -21,18 +21,22 @@ let config = {
 			},
 		]
 	},
+	resolve:{
+		alias: {
+			demo: path.resolve(__dirname, 'demo/'),
+		},
+	},
 	output: {
 		path: __dirname + '/build', // `dist` is the destination
 		filename: 'bodymovin.js',
 	},
 	devServer: {
 		open: true, // to open the local server in browser
-		contentBase: __dirname + '/player',
+		contentBase: __dirname + '/',
 	},
 
 	devtool: "eval-source-map"
 };
-\
 
 if (process.env.NODE_ENV === "production") {
 	config.devtool = "source-map";

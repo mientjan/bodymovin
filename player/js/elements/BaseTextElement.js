@@ -1,3 +1,4 @@
-var BaseTextElement = function (){
+export default function BaseTextElement ()
+{
 };
 

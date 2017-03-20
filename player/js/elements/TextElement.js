@@ -1,4 +1,5 @@
-function ITextElement(data, animationItem,parentContainer,globalData){
+import {LetterProps} from "../utils/common";
+export default function ITextElement(data, animationItem, parentContainer, globalData){
 }
 ITextElement.prototype.init = function(){
     this._parent.init.call(this);

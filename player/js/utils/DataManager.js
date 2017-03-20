@@ -676,4 +676,6 @@ function dataFunctionManager(){
     return moduleOb;
 }
 
-var dataManager = dataFunctionManager();
+var DataManager = dataFunctionManager();
+
+export default DataManager;

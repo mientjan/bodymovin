@@ -1,4 +1,7 @@
-function RoundCornersModifier(){};
+import {extendPrototype} from "../common";
+import {ShapeModifier, ShapeModifiers} from "./ShapeModifiers";
+
+export default function RoundCornersModifier(){};
 extendPrototype(ShapeModifier,RoundCornersModifier);
 RoundCornersModifier.prototype.processKeys = function(forceRender){
     if(this.elem.globalData.frameId === this.frameId && !forceRender){

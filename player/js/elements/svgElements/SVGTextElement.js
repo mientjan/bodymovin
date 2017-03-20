@@ -1,14 +1,17 @@
-function SVGTextElement(data,parentContainer,globalData,comp, placeholder){
+import SVGBaseElement from "./SVGBaseElement";
+import {createElement} from "../../utils/common";
+import TextElement from "../TextElement";
+export default function SVGTextElement(data, parentContainer, globalData, comp, placeholder){
     this.textSpans = [];
     this.renderType = 'svg';
     this._parent.constructor.call(this,data,parentContainer,globalData,comp, placeholder);
 }
 createElement(SVGBaseElement, SVGTextElement);
 
-SVGTextElement.prototype.init = ITextElement.prototype.init;
-SVGTextElement.prototype.createPathShape = ITextElement.prototype.createPathShape;
-SVGTextElement.prototype.getMeasures = ITextElement.prototype.getMeasures;
-SVGTextElement.prototype.prepareFrame = ITextElement.prototype.prepareFrame;
+SVGTextElement.prototype.init = TextElement.prototype.init;
+SVGTextElement.prototype.createPathShape = TextElement.prototype.createPathShape;
+SVGTextElement.prototype.getMeasures = TextElement.prototype.getMeasures;
+SVGTextElement.prototype.prepareFrame = TextElement.prototype.prepareFrame;
 
 SVGTextElement.prototype.createElements = function(){
 

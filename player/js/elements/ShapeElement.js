@@ -1,4 +1,11 @@
-function IShapeElement(data,parentContainer,globalData,comp, placeholder){
+import {createElement, randomString, styleUnselectableDiv, svgNS} from "../utils/common";
+import PropertyFactory from "../utils/PropertyFactory";
+import ShapePropertyFactory from "../utils/shapes/ShapePropertyFactory";
+import {ShapeModifiers} from "../utils/shapes/ShapeModifiers";
+import SVGBaseElement from "./svgElements/SVGBaseElement";
+
+
+export default function ShapeElement(data, parentContainer, globalData, comp, placeholder){
     this.shapes = [];
     this.shapesData = data.shapes;
     this.stylesList = [];
@@ -6,23 +13,23 @@ function IShapeElement(data,parentContainer,globalData,comp, placeholder){
     this.shapeModifiers = [];
     this._parent.constructor.call(this,data,parentContainer,globalData,comp, placeholder);
 }
-createElement(SVGBaseElement, IShapeElement);
+createElement(SVGBaseElement, ShapeElement);
 
-IShapeElement.prototype.lcEnum = {
+ShapeElement.prototype.lcEnum = {
     '1': 'butt',
     '2': 'round',
     '3': 'butt'
 }
 
-IShapeElement.prototype.ljEnum = {
+ShapeElement.prototype.ljEnum = {
     '1': 'miter',
     '2': 'round',
     '3': 'butt'
 }
 
-IShapeElement.prototype.buildExpressionInterface = function(){};
+ShapeElement.prototype.buildExpressionInterface = function(){};
 
-IShapeElement.prototype.createElements = function(){
+ShapeElement.prototype.createElements = function(){
     //TODO check if I can use symbol so i can set its viewBox
     this._parent.createElements.call(this);
     this.searchShapes(this.shapesData,this.viewData,this.layerElement,this.dynamicProperties, 0);
@@ -32,7 +39,7 @@ IShapeElement.prototype.createElements = function(){
     //this.elemInterface.registerShapeExpressionInterface(ShapeExpressionInterface.createShapeInterface(this.shapesData,this.viewData,this.elemInterface));
 };
 
-IShapeElement.prototype.setGradientData = function(pathElement,arr,data){
+ShapeElement.prototype.setGradientData = function(pathElement,arr,data){
 
     var gradientId = 'gr_'+randomString(10);
     var gfill;
@@ -58,7 +65,7 @@ IShapeElement.prototype.setGradientData = function(pathElement,arr,data){
     data.cst = stops;
 }
 
-IShapeElement.prototype.setGradientOpacity = function(arr, data, styleOb){
+ShapeElement.prototype.setGradientOpacity = function(arr, data, styleOb){
     if((arr.g.k.k[0].s && arr.g.k.k[0].s.length > arr.g.p*4) || arr.g.k.k.length > arr.g.p*4){
         var opFill;
         var stop, j, jLen;
@@ -96,7 +103,7 @@ IShapeElement.prototype.setGradientOpacity = function(arr, data, styleOb){
     }
 };
 
-IShapeElement.prototype.searchShapes = function(arr,data,container,dynamicProperties, level, transformers){
+ShapeElement.prototype.searchShapes = function(arr,data,container,dynamicProperties, level, transformers){
     transformers = transformers || [];
     var ownTransformers = [].concat(transformers);
     var i, len = arr.length - 1;
@@ -237,14 +244,14 @@ IShapeElement.prototype.searchShapes = function(arr,data,container,dynamicProper
     }
 };
 
-IShapeElement.prototype.addShapeToModifiers = function(shape) {
+ShapeElement.prototype.addShapeToModifiers = function(shape) {
     var i, len = this.shapeModifiers.length;
     for(i=0;i<len;i+=1){
         this.shapeModifiers[i].addShape(shape);
     }
 };
 
-IShapeElement.prototype.renderModifiers = function() {
+ShapeElement.prototype.renderModifiers = function() {
     if(!this.shapeModifiers.length){
         return;
     }
@@ -261,7 +268,7 @@ IShapeElement.prototype.renderModifiers = function() {
     }
 };
 
-IShapeElement.prototype.renderFrame = function(parentMatrix){
+ShapeElement.prototype.renderFrame = function(parentMatrix){
     var renderParent = this._parent.renderFrame.call(this,parentMatrix);
     if(renderParent===false){
         this.hide();
@@ -276,7 +283,7 @@ IShapeElement.prototype.renderFrame = function(parentMatrix){
     this.renderShape(null,null,true, null);
 };
 
-IShapeElement.prototype.hide = function(){
+ShapeElement.prototype.hide = function(){
     if(!this.hidden){
         this.layerElement.style.display = 'none';
         var i, len = this.stylesList.length;
@@ -294,7 +301,7 @@ IShapeElement.prototype.hide = function(){
     }
 };
 
-IShapeElement.prototype.renderShape = function(items,data,isMain, container){
+ShapeElement.prototype.renderShape = function(items,data,isMain, container){
     var i, len;
     if(!items){
         items = this.shapesData;
@@ -359,7 +366,7 @@ IShapeElement.prototype.renderShape = function(items,data,isMain, container){
 
 };
 
-IShapeElement.prototype.renderPath = function(pathData,viewData){
+ShapeElement.prototype.renderPath = function(pathData,viewData){
     var len, i, j, jLen,pathStringTransformed,redraw,pathNodes,l, lLen = viewData.elements.length;
     var lvl = viewData.lvl;
     for(l=0;l<lLen;l+=1){
@@ -438,7 +445,7 @@ IShapeElement.prototype.renderPath = function(pathData,viewData){
 
 };
 
-IShapeElement.prototype.renderFill = function(styleData,viewData){
+ShapeElement.prototype.renderFill = function(styleData,viewData){
     var styleElem = viewData.style;
 
     if(viewData.c.mdf || this.firstFrame){
@@ -450,7 +457,7 @@ IShapeElement.prototype.renderFill = function(styleData,viewData){
     }
 };
 
-IShapeElement.prototype.renderGradient = function(styleData,viewData){
+ShapeElement.prototype.renderGradient = function(styleData,viewData){
     var gfill = viewData.gf;
     var opFill = viewData.of;
     var pt1 = viewData.s.v,pt2 = viewData.e.v;
@@ -530,7 +537,7 @@ IShapeElement.prototype.renderGradient = function(styleData,viewData){
     }
 };
 
-IShapeElement.prototype.renderStroke = function(styleData,viewData){
+ShapeElement.prototype.renderStroke = function(styleData,viewData){
     var styleElem = viewData.style;
     //TODO fix dashes
     var d = viewData.d;
@@ -557,7 +564,7 @@ IShapeElement.prototype.renderStroke = function(styleData,viewData){
     }
 };
 
-IShapeElement.prototype.destroy = function(){
+ShapeElement.prototype.destroy = function(){
     this._parent.destroy.call(this._parent);
     this.shapeData = null;
     this.viewData = null;

@@ -203,3 +203,5 @@ function bezFunction(){
 }
 
 var bez = bezFunction();
+
+export default bez;

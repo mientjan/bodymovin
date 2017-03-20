@@ -1,10 +1,12 @@
-function IImageElement(data,parentContainer,globalData,comp,placeholder){
+import {createElement} from "../utils/common";
+import SVGBaseElement from "./svgElements/SVGBaseElement";
+export default function ImageElement(data, parentContainer, globalData, comp, placeholder){
     this.assetData = globalData.getAssetData(data.refId);
     this._parent.constructor.call(this,data,parentContainer,globalData,comp,placeholder);
 }
-createElement(SVGBaseElement, IImageElement);
+createElement(SVGBaseElement, ImageElement);
 
-IImageElement.prototype.createElements = function(){
+ImageElement.prototype.createElements = function(){
 
     var assetPath = this.globalData.getAssetsPath(this.assetData);
 
@@ -26,14 +28,14 @@ IImageElement.prototype.createElements = function(){
 
 };
 
-IImageElement.prototype.hide = function(){
+ImageElement.prototype.hide = function(){
     if(!this.hidden){
         this.layerElement.style.display = 'none';
         this.hidden = true;
     }
 };
 
-IImageElement.prototype.renderFrame = function(parentMatrix){
+ImageElement.prototype.renderFrame = function(parentMatrix){
     var renderParent = this._parent.renderFrame.call(this,parentMatrix);
     if(renderParent===false){
         this.hide();
@@ -48,7 +50,7 @@ IImageElement.prototype.renderFrame = function(parentMatrix){
     }
 };
 
-IImageElement.prototype.destroy = function(){
+ImageElement.prototype.destroy = function(){
     this._parent.destroy.call(this._parent);
     this.innerElem =  null;
 };

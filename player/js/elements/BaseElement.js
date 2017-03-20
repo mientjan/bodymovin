@@ -1,5 +1,10 @@
-function BaseElement(){
+import Matrix from "../3rd_party/Matrix";
+import PropertyFactory from "../utils/PropertyFactory";
+
+export default function BaseElement()
+{
 };
+
 BaseElement.prototype.checkMasks = function(){
     if(!this.data.hasMask){
         return false;
@@ -206,6 +211,7 @@ BaseElement.prototype.init = function(){
     }
     this.elemMdf = false;
 };
+
 BaseElement.prototype.getType = function(){
     return this.type;
 };

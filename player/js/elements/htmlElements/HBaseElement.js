@@ -1,4 +1,4 @@
-function HBaseElement(data,parentContainer,globalData,comp, placeholder){
+export default function HBaseElement(data,parentContainer,globalData,comp, placeholder){
     this.globalData = globalData;
     this.comp = comp;
     this.data = data;

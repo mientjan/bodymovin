@@ -1,4 +1,4 @@
-var FontManager = (function(){
+
 
     var maxWaitingTime = 5000;
 
@@ -196,19 +196,17 @@ var FontManager = (function(){
         return 'sans-serif';
     }
 
-    var Font = function(){
+    function FontManager(){
         this.fonts = [];
         this.chars = null;
         this.typekitLoaded = 0;
         this.loaded = false;
         this.initTime = Date.now();
     };
-    Font.prototype.addChars = addChars;
-    Font.prototype.addFonts = addFonts;
-    Font.prototype.getCharData = getCharData;
-    Font.prototype.getFontByName = getFontByName;
-    Font.prototype.measureText = measureText;
+    FontManager.prototype.addChars = addChars;
+    FontManager.prototype.addFonts = addFonts;
+    FontManager.prototype.getCharData = getCharData;
+    FontManager.prototype.getFontByName = getFontByName;
+    FontManager.prototype.measureText = measureText;
 
-    return Font;
-
-}());
+    export default FontManager;

@@ -1,4 +1,6 @@
-function CanvasRenderer(animationItem, config){
+import {extendPrototype} from "../utils/common";
+import BaseRenderer from "./BaseRenderer";
+export default function CanvasRenderer(animationItem, config){
     this.animationItem = animationItem;
     this.renderConfig = {
         clearCanvas: (config && config.clearCanvas !== undefined) ? config.clearCanvas : true,

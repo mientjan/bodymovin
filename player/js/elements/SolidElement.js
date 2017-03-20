@@ -1,9 +1,13 @@
-function ISolidElement(data,parentContainer,globalData,comp, placeholder){
+import SVGBaseElement from "./svgElements/SVGBaseElement";
+import {createElement} from "../utils/common";
+import ImageElement from "./ImageElement";
+
+export default function SolidElement(data, parentContainer, globalData, comp, placeholder){
     this._parent.constructor.call(this,data,parentContainer,globalData,comp, placeholder);
 }
-createElement(SVGBaseElement, ISolidElement);
+createElement(SVGBaseElement, SolidElement);
 
-ISolidElement.prototype.createElements = function(){
+SolidElement.prototype.createElements = function(){
     this._parent.createElements.call(this);
 
     var rect = document.createElementNS(svgNS,'rect');
@@ -23,6 +27,6 @@ ISolidElement.prototype.createElements = function(){
     }
 };
 
-ISolidElement.prototype.hide = IImageElement.prototype.hide;
-ISolidElement.prototype.renderFrame = IImageElement.prototype.renderFrame;
-ISolidElement.prototype.destroy = IImageElement.prototype.destroy;
+SolidElement.prototype.hide = ImageElement.prototype.hide;
+SolidElement.prototype.renderFrame = ImageElement.prototype.renderFrame;
+SolidElement.prototype.destroy = ImageElement.prototype.destroy;

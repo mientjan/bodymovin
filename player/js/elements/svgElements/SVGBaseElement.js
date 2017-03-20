@@ -1,4 +1,6 @@
-function SVGBaseElement(data,parentContainer,globalData,comp, placeholder){
+import {createElement, randomString, svgNS} from "../../utils/common";
+import BaseElement from "../BaseElement";
+function SVGBaseElement(data, parentContainer, globalData, comp, placeholder){
     this.globalData = globalData;
     this.comp = comp;
     this.data = data;
@@ -303,3 +305,6 @@ SVGBaseElement.prototype.setMatte = function(id){
 SVGBaseElement.prototype.hide = function(){
 
 };
+
+
+export default SVGBaseElement;

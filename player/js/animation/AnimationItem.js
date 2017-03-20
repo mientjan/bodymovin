@@ -1,4 +1,15 @@
-var AnimationItem = function () {
+import {
+	_addEventListener, _removeEventListener, _triggerEvent, expressionsPlugin, ProjectInterface, randomString,
+	subframeEnabled
+} from "../utils/common";
+import CanvasRenderer from "../renderers/CanvasRenderer";
+import SVGRenderer from "../renderers/SVGRenderer";
+import HybridRenderer from "../renderers/HybridRenderer";
+import ImagePreloader from "../utils/ImagePreloader";
+import DataManager from "../utils/DataManager";
+
+
+export default function AnimationItem() {
     this._cbs = [];
     this.name = '';
     this.path = '';
@@ -170,7 +181,7 @@ AnimationItem.prototype.includeLayers = function(data) {
     //this.totalFrames = 50;
     //this.animationData.tf = 50;
     this.animationData.__complete = false;
-    dataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
+    DataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
     this.renderer.includeLayers(data.layers);
     if(expressionsPlugin){
         expressionsPlugin.initExpressions(this);
@@ -252,7 +263,7 @@ AnimationItem.prototype.configAnimation = function (animData) {
     if(this.renderer.globalData.fontManager){
         this.waitForFontsLoaded();
     }else{
-        dataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
+        DataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
         this.checkLoaded();
     }
 };
@@ -260,7 +271,7 @@ AnimationItem.prototype.configAnimation = function (animData) {
 AnimationItem.prototype.waitForFontsLoaded = (function(){
     function checkFontsLoaded(){
         if(this.renderer.globalData.fontManager.loaded){
-            dataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
+            DataManager.completeData(this.animationData,this.renderer.globalData.fontManager);
             //this.renderer.buildItems(this.animationData.layers);
             this.checkLoaded();
         }else{

@@ -1,4 +1,6 @@
-function ShapeItemElement(data,parentElement,parentContainer,placeholder,dynamicProperties,globalData){
+import SVGBaseElement from "./svgElements/SVGBaseElement";
+import {styleUnselectableDiv} from "../utils/common";
+export default function ShapeItemElement(data, parentElement, parentContainer, placeholder, dynamicProperties, globalData){
     this.shape = parentElement;
     this.parentContainer = parentContainer;
     this.placeholder = placeholder;

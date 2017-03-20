@@ -1,18 +1,20 @@
 var ShapeModifiers = (function(){
     var ob = {};
     var modifiers = {};
-    ob.registerModifier = registerModifier;
-    ob.getModifier = getModifier;
 
-    function registerModifier(nm,factory){
+
+    let registerModifier = function(nm,factory){
         if(!modifiers[nm]){
             modifiers[nm] = factory;
         }
     }
 
-    function getModifier(nm,elem, data, dynamicProperties){
+    let getModifier = function(nm,elem, data, dynamicProperties){
         return new modifiers[nm](elem, data, dynamicProperties);
     }
+
+	ob.registerModifier = registerModifier;
+	ob.getModifier = getModifier;
 
     return ob;
 }());
@@ -43,4 +45,9 @@ ShapeModifier.prototype.init = function(elem,data,dynamicProperties){
     }else{
         this.getValue(true);
     }
+}
+
+export {
+	ShapeModifier,
+	ShapeModifiers
 }

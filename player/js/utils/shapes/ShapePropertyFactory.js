@@ -1,3 +1,4 @@
+import {roundCorner} from "../common";
 var ShapePropertyFactory = (function(){
 
     var initFrame = -999999;
@@ -572,3 +573,5 @@ var ShapePropertyFactory = (function(){
     ob.getShapeProp = getShapeProp;
     return ob;
 }());
+
+export default ShapePropertyFactory;

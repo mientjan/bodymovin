@@ -1,4 +1,8 @@
-function HybridRenderer(animationItem){
+import SVGRenderer from "./SVGRenderer";
+import BaseRenderer from "./BaseRenderer";
+import {extendPrototype} from "../utils/common";
+
+export default function HybridRenderer(animationItem){
     this.animationItem = animationItem;
     this.layers = null;
     this.renderedFrame = -1;

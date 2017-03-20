@@ -1,4 +1,4 @@
-function PlayerManager(){}
+export default function PlayerManager(){}
 
 PlayerManager.prototype.createPlayer = function(type){
     switch(type){
@@ -7,4 +7,4 @@ PlayerManager.prototype.createPlayer = function(type){
     }
 };
 
-var playerManager = createElement(PlayerManager);
+export var playerManager = createElement(PlayerManager);
