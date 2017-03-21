@@ -1,24 +1,24 @@
-function SliderEffect(data,elem, dynamicProperties){
+export function SliderEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,0,0,dynamicProperties);
 }
-function AngleEffect(data,elem, dynamicProperties){
+export function AngleEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,0,0,dynamicProperties);
 }
-function ColorEffect(data,elem, dynamicProperties){
+export function ColorEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,1,0,dynamicProperties);
 }
-function PointEffect(data,elem, dynamicProperties){
+export function PointEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,1,0,dynamicProperties);
 }
-function LayerIndexEffect(data,elem, dynamicProperties){
+export function LayerIndexEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,0,0,dynamicProperties);
 }
-function MaskIndexEffect(data,elem, dynamicProperties){
+export function MaskIndexEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,0,0,dynamicProperties);
 }
-function CheckboxEffect(data,elem, dynamicProperties){
+export function CheckboxEffect(data,elem, dynamicProperties){
     this.p = PropertyFactory.getProp(elem,data.v,0,0,dynamicProperties);
 }
-function NoValueEffect(){
+export function NoValueEffect(){
     this.p = {};
 }
