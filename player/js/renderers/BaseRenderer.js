@@ -28,22 +28,52 @@ export default class BaseRenderer {
 
 	createItem (layer)
 	{
-		switch (layer.ty)
+		let item = null;
+
+		if(layer.ty == 2)
 		{
-			case 2:
-				return this.createImage(layer);
-			case 0:
-				return this.createComp(layer);
-			case 1:
-				return this.createSolid(layer);
-			case 4:
-				return this.createShape(layer);
-			case 5:
-				return this.createText(layer);
-			case 99:
-				return null;
+			item = this.createImage(layer);
 		}
-		return this.createBase(layer);
+		else if(layer.ty == 0)
+		{
+			item = this.createComp(layer);
+		}
+		else if(layer.ty == 1)
+		{
+			item = this.createSolid(layer);
+		}
+		else if(layer.ty == 4)
+		{
+			item = this.createShape(layer);
+		}
+		else if(layer.ty == 5)
+		{
+			item = this.createText(layer);
+		}
+		else if(layer.ty == 99)
+		{
+			item = null;
+		} else {
+			item = this.createBase(layer);
+		}
+
+		return item;
+		// switch (layer.ty)
+		// {
+		// 	case 2:
+		// 		return this.createImage(layer);
+		// 	case 0:
+		// 		return this.createComp(layer);
+		// 	case 1:
+		// 		return this.createSolid(layer);
+		// 	case 4:
+		// 		return this.createShape(layer);
+		// 	case 5:
+		// 		return this.createText(layer);
+		// 	case 99:
+		// 		return null;
+		// }
+		// return this.createBase(layer);
 	}
 
 	buildAllItems ()

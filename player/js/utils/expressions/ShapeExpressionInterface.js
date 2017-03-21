@@ -724,3 +724,6 @@ var ShapeExpressionInterface = (function(){
 
     return ob;
 }())
+
+
+export default ShapeExpressionInterface;

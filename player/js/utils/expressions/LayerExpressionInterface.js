@@ -1,3 +1,4 @@
+import TransformExpressionInterface from "./TransformExpressionInterface";
 var LayerExpressionInterface = (function (){
     function toWorld(arr){
         var toWorldMat = new Matrix();
@@ -131,3 +132,6 @@ var LayerExpressionInterface = (function (){
         return _thisLayerFunction;
     }
 }());
+
+export default LayerExpressionInterface;
+

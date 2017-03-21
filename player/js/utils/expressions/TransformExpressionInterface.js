@@ -82,3 +82,5 @@ var TransformExpressionInterface = (function (){
         return _thisFunction;
     }
 }());
+
+export default TransformExpressionInterface;

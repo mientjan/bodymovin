@@ -65,3 +65,5 @@ var EffectsExpressionInterface = (function (){
     return ob;
 
 }());
+
+export default EffectsExpressionInterface;

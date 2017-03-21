@@ -204,54 +204,54 @@ CVCompElement.prototype.destroy = function ()
 
 CVCompElement.prototype.checkLayers = function ()
 {
-	CanvasRenderer.prototype.checkLayers.apply(this, arguments);
+	return CanvasRenderer.prototype.checkLayers.apply(this, arguments);
 }
 
 CVCompElement.prototype.buildItem = function ()
 {
-	CanvasRenderer.prototype.buildItem.apply(this, arguments);
+	return CanvasRenderer.prototype.buildItem.apply(this, arguments);
 }
 CVCompElement.prototype.checkPendingElements = function ()
 {
-	CanvasRenderer.prototype.checkPendingElements.apply(this, arguments);
+	return CanvasRenderer.prototype.checkPendingElements.apply(this, arguments);
 }
 CVCompElement.prototype.addPendingElement = function ()
 {
-	CanvasRenderer.prototype.addPendingElement.apply(this, arguments);
+	return CanvasRenderer.prototype.addPendingElement.apply(this, arguments);
 }
 CVCompElement.prototype.buildAllItems = function ()
 {
-	CanvasRenderer.prototype.buildAllItems.apply(this, arguments);
+	return CanvasRenderer.prototype.buildAllItems.apply(this, arguments);
 }
 CVCompElement.prototype.createItem = function ()
 {
-	CanvasRenderer.prototype.createItem.apply(this, arguments);
+	return CanvasRenderer.prototype.createItem.apply(this, arguments);
 }
 CVCompElement.prototype.createImage = function ()
 {
-	CanvasRenderer.prototype.createImage.apply(this, arguments);
+	return CanvasRenderer.prototype.createImage.apply(this, arguments);
 }
 CVCompElement.prototype.createComp = function ()
 {
-	CanvasRenderer.prototype.createComp.apply(this, arguments);
+	return CanvasRenderer.prototype.createComp.apply(this, arguments);
 }
 CVCompElement.prototype.createSolid = function ()
 {
-	CanvasRenderer.prototype.createSolid.apply(this, arguments);
+	return CanvasRenderer.prototype.createSolid.apply(this, arguments);
 }
 CVCompElement.prototype.createShape = function ()
 {
-	CanvasRenderer.prototype.createShape.apply(this, arguments);
+	return CanvasRenderer.prototype.createShape.apply(this, arguments);
 }
 CVCompElement.prototype.createText = function ()
 {
-	CanvasRenderer.prototype.createText.apply(this, arguments);
+	return CanvasRenderer.prototype.createText.apply(this, arguments);
 }
 CVCompElement.prototype.createBase = function ()
 {
-	CanvasRenderer.prototype.createBase.apply(this, arguments);
+	return CanvasRenderer.prototype.createBase.apply(this, arguments);
 }
 CVCompElement.prototype.buildElementParenting = function ()
 {
-	CanvasRenderer.prototype.buildElementParenting.apply(this, arguments);
+	return CanvasRenderer.prototype.buildElementParenting.apply(this, arguments);
 }

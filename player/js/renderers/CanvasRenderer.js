@@ -49,7 +49,6 @@ export default class CanvasRenderer extends BaseRenderer
 		this.completeLayers = false;
 	}
 
-
 	createBase (data)
 	{
 		return new CVBaseElement(data, this, this.globalData);
@@ -394,6 +393,7 @@ export default class CanvasRenderer extends BaseRenderer
 			return;
 		}
 		var element = this.createItem(this.layers[pos], this, this.globalData);
+
 		elements[pos] = element;
 		element.initExpressions();
 		if (this.layers[pos].ty === 0)
