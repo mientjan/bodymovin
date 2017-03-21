@@ -1,4 +1,4 @@
-function CVShapeItemElement(data,dynamicProperties,globalData){
+export default function CVShapeItemElement(data,dynamicProperties,globalData){
     this.lcEnum = {
         '1': 'butt',
         '2': 'round',

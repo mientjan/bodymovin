@@ -1,4 +1,6 @@
-function CVImageElement(data, comp,globalData){
+import {createElement} from "../../utils/common";
+import CVBaseElement from "./CVBaseElement";
+export default function CVImageElement(data, comp, globalData){
     this.assetData = globalData.getAssetData(data.refId);
     this._parent.constructor.call(this,data, comp,globalData);
     this.globalData.addPendingElement();

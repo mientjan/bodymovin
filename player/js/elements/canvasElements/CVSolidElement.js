@@ -1,4 +1,6 @@
-function CVSolidElement(data, comp,globalData){
+import {createElement} from "../../utils/common";
+import CVBaseElement from "./CVBaseElement";
+export default function CVSolidElement(data, comp, globalData){
     this._parent.constructor.call(this,data, comp,globalData);
 }
 createElement(CVBaseElement, CVSolidElement);

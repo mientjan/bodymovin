@@ -1,4 +1,12 @@
-function CVShapeElement(data, comp,globalData){
+import {bm_floor, createElement} from "../../utils/common";
+import CVBaseElement from "./CVBaseElement";
+import Matrix from "../../3rd_party/Matrix";
+import PropertyFactory from "../../utils/PropertyFactory";
+import ShapePropertyFactory from "../../utils/shapes/ShapePropertyFactory";
+import ShapeElement from "../ShapeElement";
+
+
+export default function CVShapeElement(data, comp, globalData){
     this.shapes = [];
     this.stylesList = [];
     this.viewData = [];
@@ -139,8 +147,8 @@ CVShapeElement.prototype.searchShapes = function(arr,data,dynamicProperties){
     }
 };
 
-CVShapeElement.prototype.addShapeToModifiers = IShapeElement.prototype.addShapeToModifiers;
-CVShapeElement.prototype.renderModifiers = IShapeElement.prototype.renderModifiers;
+CVShapeElement.prototype.addShapeToModifiers = ShapeElement.prototype.addShapeToModifiers;
+CVShapeElement.prototype.renderModifiers = ShapeElement.prototype.renderModifiers;
 
 CVShapeElement.prototype.renderFrame = function(parentMatrix){
     if(this._parent.renderFrame.call(this, parentMatrix)===false){

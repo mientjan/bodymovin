@@ -1,5 +1,5 @@
 
-function CVMaskElement(data,element){
+export default function CVMaskElement(data,element){
     this.data = data;
     this.element = element;
     this.dynamicProperties = [];

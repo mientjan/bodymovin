@@ -1,4 +1,8 @@
-function CVTextElement(data, comp, globalData){
+import {createElement} from "../../utils/common";
+import CVBaseElement from "./CVBaseElement";
+import TextElement from "../TextElement";
+
+export default function CVTextElement(data, comp, globalData){
     this.textSpans = [];
     this.yOffset = 0;
     this.fillColorAnim = false;
@@ -19,10 +23,10 @@ function CVTextElement(data, comp, globalData){
 }
 createElement(CVBaseElement, CVTextElement);
 
-CVTextElement.prototype.init = ITextElement.prototype.init;
-CVTextElement.prototype.getMeasures = ITextElement.prototype.getMeasures;
-CVTextElement.prototype.getMult = ITextElement.prototype.getMult;
-CVTextElement.prototype.prepareFrame = ITextElement.prototype.prepareFrame;
+CVTextElement.prototype.init = TextElement.prototype.init;
+CVTextElement.prototype.getMeasures = TextElement.prototype.getMeasures;
+CVTextElement.prototype.getMult = TextElement.prototype.getMult;
+CVTextElement.prototype.prepareFrame = TextElement.prototype.prepareFrame;
 
 CVTextElement.prototype.tHelper = document.createElement('canvas').getContext('2d');
 

@@ -1,4 +1,9 @@
-function CVBaseElement(data, comp,globalData){
+import {createElement} from "../../utils/common";
+import BaseElement from "../BaseElement";
+import Matrix from "../../3rd_party/Matrix";
+import CVMaskElement from "./CVMaskElement";
+
+export default function CVBaseElement(data, comp, globalData){
     this.globalData = globalData;
     this.data = data;
     this.comp = comp;
