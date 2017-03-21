@@ -1,4 +1,9 @@
-export default function MaskElement(data,element,globalData) {
+import {bm_rnd, randomString, svgNS} from "../utils/common";
+import PropertyFactory from "../utils/PropertyFactory";
+import ShapePropertyFactory from "../utils/shapes/ShapePropertyFactory";
+
+
+export default function MaskElement(data, element, globalData) {
     this.dynamicProperties = [];
     this.data = data;
     this.element = element;

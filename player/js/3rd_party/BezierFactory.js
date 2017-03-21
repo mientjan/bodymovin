@@ -155,5 +155,5 @@ var BezierFactory = (function(){
 
 }());
 
-export var BezierFactory;
+export default BezierFactory;
 

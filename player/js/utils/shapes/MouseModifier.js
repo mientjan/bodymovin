@@ -1,3 +1,5 @@
+import {extendPrototype} from "../common";
+import {ShapeModifier, ShapeModifiers} from "./ShapeModifiers";
 function MouseModifier(){};
 extendPrototype(ShapeModifier,MouseModifier);
 MouseModifier.prototype.processKeys = function(forceRender){

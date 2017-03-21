@@ -1,9 +1,12 @@
-import {ShapeModifier} from "./ShapeModifiers";
+import {ShapeModifier, ShapeModifiers} from "./ShapeModifiers";
 import {extendPrototype} from "../common";
+import PropertyFactory from "../PropertyFactory";
+import bez from "../bez";
 
 export default function TrimModifier ()
 {
 };
+
 extendPrototype(ShapeModifier, TrimModifier);
 TrimModifier.prototype.processKeys = function (forceRender)
 {

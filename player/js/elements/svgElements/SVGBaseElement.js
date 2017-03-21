@@ -1,5 +1,6 @@
 import {createElement, randomString, svgNS} from "../../utils/common";
 import BaseElement from "../BaseElement";
+import MaskElement from "../MaskElement";
 function SVGBaseElement(data, parentContainer, globalData, comp, placeholder){
     this.globalData = globalData;
     this.comp = comp;

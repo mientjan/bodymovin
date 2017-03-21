@@ -1,4 +1,4 @@
-import {createElement, randomString, styleUnselectableDiv, svgNS} from "../utils/common";
+import {bm_floor, createElement, randomString, styleUnselectableDiv, svgNS} from "../utils/common";
 import PropertyFactory from "../utils/PropertyFactory";
 import ShapePropertyFactory from "../utils/shapes/ShapePropertyFactory";
 import {ShapeModifiers} from "../utils/shapes/ShapeModifiers";

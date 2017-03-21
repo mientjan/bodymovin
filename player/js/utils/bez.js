@@ -1,3 +1,5 @@
+import {bm_floor, bm_pow, bm_sqrt, defaultCurveSegments} from "./common";
+
 function bezFunction(){
 
     var easingFunctions = [];

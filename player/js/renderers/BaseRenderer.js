@@ -1,3 +1,7 @@
+import TrimModifier from "../utils/shapes/TrimModifier";
+import MouseModifier from "../utils/shapes/MouseModifier";
+import RoundCornersModifier from "../utils/shapes/RoundCornersModifier";
+
 export default class BaseRenderer {
 	constructor ()
 	{

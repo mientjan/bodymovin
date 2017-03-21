@@ -1,17 +1,17 @@
 export var subframeEnabled = true;
 export var svgNS = "http://www.w3.org/2000/svg";
 export var expressionsPlugin;
-var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-var cachedColors = {};
-var bm_rounder = Math.round;
-var bm_rnd;
-var bm_pow = Math.pow;
-var bm_sqrt = Math.sqrt;
-var bm_abs = Math.abs;
-var bm_floor = Math.floor;
-var bm_max = Math.max;
-var bm_min = Math.min;
-var blitter = 10;
+export var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+export var cachedColors = {};
+export var bm_rounder = Math.round;
+export var bm_rnd;
+export var bm_pow = Math.pow;
+export var bm_sqrt = Math.sqrt;
+export var bm_abs = Math.abs;
+export var bm_floor = Math.floor;
+export var bm_max = Math.max;
+export var bm_min = Math.min;
+export var blitter = 10;
 
 var BMMath = {};
 (function(){
@@ -38,7 +38,7 @@ BMMath.abs = function(val){
     return Math.abs(val);
 
 }
-var defaultCurveSegments = 150;
+export var defaultCurveSegments = 150;
 export var degToRads = Math.PI/180;
 export var roundCorner = 0.5519;
 

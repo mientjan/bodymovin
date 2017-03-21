@@ -1,7 +1,7 @@
 import Matrix from "../3rd_party/Matrix";
 import {degToRads} from "./common";
-import {BezierFactory} from "../3rd_party/BezierFactory";
 import bez from "./bez";
+import BezierFactory from "../3rd_party/BezierFactory";
 
 
 var initFrame = -999999;

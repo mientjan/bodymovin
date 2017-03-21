@@ -1,4 +1,7 @@
 import {roundCorner} from "../common";
+import PropertyFactory from "../PropertyFactory";
+import BezierFactory from "../../3rd_party/BezierFactory";
+
 var ShapePropertyFactory = (function(){
 
     var initFrame = -999999;
