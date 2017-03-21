@@ -27,7 +27,7 @@ let config = {
 		},
 	},
 	output: {
-		path: __dirname + '/build', // `dist` is the destination
+		path: __dirname + '/build/player', // `dist` is the destination
 		filename: 'bodymovin.js',
 	},
 	devServer: {
